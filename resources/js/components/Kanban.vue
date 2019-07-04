@@ -84,8 +84,13 @@ export default {
             this.title = ""
         },
         addStage() {
-            this.stages.push(this.new_stage)
-            this.new_stage = ""
+            if(this.stages.indexOf(this.new_stage) == -1) {
+                this.stages.push(this.new_stage)
+                this.new_stage = ""
+            } else {
+                alert("既に作成済みです！")
+                this.new_stage = ""
+            }
         },
         setStage(stage) {
             this.stage = stage

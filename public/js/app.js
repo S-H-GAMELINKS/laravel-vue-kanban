@@ -1992,8 +1992,13 @@ __webpack_require__.r(__webpack_exports__);
       this.title = "";
     },
     addStage: function addStage() {
-      this.stages.push(this.new_stage);
-      this.new_stage = "";
+      if (this.stages.indexOf(this.new_stage) == -1) {
+        this.stages.push(this.new_stage);
+        this.new_stage = "";
+      } else {
+        alert("既に作成済みです！");
+        this.new_stage = "";
+      }
     },
     setStage: function setStage(stage) {
       this.stage = stage;
