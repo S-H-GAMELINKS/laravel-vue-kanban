@@ -1911,6 +1911,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1921,6 +1934,21 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Test'
       }]
     };
+  },
+  methods: {
+    updateBlock: function updateBlock(id, status) {
+      this.blocks.find(function (b) {
+        return b.id === Number(id);
+      }).status = status;
+    },
+    addBlock: function addBlock(stage) {
+      var id = this.blocks.length + 1;
+      this.blocks.push({
+        id: id,
+        status: stage,
+        title: 'Test'
+      });
+    }
   }
 });
 
@@ -38486,7 +38514,57 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "container" },
-    [_c("kanban-board", { attrs: { stages: _vm.stages, blocks: _vm.blocks } })],
+    [
+      _c(
+        "kanban-board",
+        { attrs: { stages: _vm.stages, blocks: _vm.blocks } },
+        [
+          _vm._l(_vm.stages, function(stage) {
+            return _c(
+              "div",
+              { key: stage, attrs: { slot: stage }, slot: stage },
+              [
+                _c("h2", [_vm._v(_vm._s(stage))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        return _vm.addBlock(stage)
+                      }
+                    }
+                  },
+                  [_vm._v("Add")]
+                )
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.blocks, function(block) {
+            return _c(
+              "div",
+              { key: block.id, attrs: { slot: block.id }, slot: block.id },
+              [
+                _c("div", [
+                  _c("strong", [_vm._v("id:")]),
+                  _vm._v(" " + _vm._s(block.id) + "\n            ")
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(block.title) +
+                      "\n            "
+                  )
+                ])
+              ]
+            )
+          })
+        ],
+        2
+      )
+    ],
     1
   )
 }
