@@ -1924,9 +1924,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      title: "",
+      stage: "",
       stages: ['on-hold', 'in-progress', 'needs-review', 'approved'],
       blocks: [{
         id: 1,
@@ -1941,13 +1964,17 @@ __webpack_require__.r(__webpack_exports__);
         return b.id === Number(id);
       }).status = status;
     },
-    addBlock: function addBlock(stage) {
+    addBlock: function addBlock() {
       var id = this.blocks.length + 1;
       this.blocks.push({
         id: id,
-        status: stage,
-        title: 'Test'
+        status: this.stage,
+        title: this.title
       });
+      this.title = "";
+    },
+    setStage: function setStage(stage) {
+      this.stage = stage;
     }
   }
 });
@@ -38529,13 +38556,121 @@ var render = function() {
                 _c(
                   "button",
                   {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      type: "button",
+                      "data-toggle": "modal",
+                      "data-target": "#Modal"
+                    },
                     on: {
                       click: function($event) {
-                        return _vm.addBlock(stage)
+                        return _vm.setStage(stage)
                       }
                     }
                   },
-                  [_vm._v("Add")]
+                  [_vm._v("\n                Add\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal fade",
+                    attrs: {
+                      id: "Modal",
+                      tabindex: "-1",
+                      role: "dialog",
+                      "aria-labelledby": "exampleModalLabel",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "modal-dialog",
+                        attrs: { role: "document" }
+                      },
+                      [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c(
+                              "h5",
+                              {
+                                staticClass: "modal-title",
+                                attrs: { id: "exampleModalLabel" }
+                              },
+                              [_vm._v("Modal title")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal",
+                                  "aria-label": "Close"
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { attrs: { "aria-hidden": "true" } },
+                                  [_vm._v("×")]
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.title,
+                                  expression: "title"
+                                }
+                              ],
+                              domProps: { value: _vm.title },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.title = $event.target.value
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-secondary",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal"
+                                },
+                                on: { click: _vm.addBlock }
+                              },
+                              [_vm._v("Add")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "button" }
+                              },
+                              [_vm._v("Save changes")]
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
                 )
               ]
             )
