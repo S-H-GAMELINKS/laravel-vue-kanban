@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" v-on:click="setStage(stage)">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stageModal" v-on:click="setStage(stage)">
             Add Stage
         </button>
-        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="stageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -66,14 +66,8 @@ export default {
         return {
             title: "",
             stage: "",
-            stages: ['on-hold', 'in-progress', 'needs-review', 'approved'],
-            blocks: [
-                {
-                    id: 1,
-                    status: 'on-hold',
-                    title: 'Test',
-                },
-            ]
+            stages: [],
+            blocks: []
         }
     },
     methods: {

@@ -1972,12 +1972,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       title: "",
       stage: "",
-      stages: ['on-hold', 'in-progress', 'needs-review', 'approved'],
-      blocks: [{
-        id: 1,
-        status: 'on-hold',
-        title: 'Test'
-      }]
+      stages: [],
+      blocks: []
     };
   },
   methods: {
@@ -38575,7 +38571,7 @@ var render = function() {
           attrs: {
             type: "button",
             "data-toggle": "modal",
-            "data-target": "#Modal"
+            "data-target": "#stageModal"
           },
           on: {
             click: function($event) {
@@ -38591,7 +38587,7 @@ var render = function() {
         {
           staticClass: "modal fade",
           attrs: {
-            id: "Modal",
+            id: "stageModal",
             tabindex: "-1",
             role: "dialog",
             "aria-labelledby": "exampleModalLabel",
