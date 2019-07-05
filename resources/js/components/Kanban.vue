@@ -38,7 +38,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <input v-model="title">
+                                <textarea v-model="title" class="form-control"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="addBlock">Add</button>

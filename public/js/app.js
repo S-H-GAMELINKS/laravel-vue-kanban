@@ -38737,7 +38737,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "modal-body" }, [
-                            _c("input", {
+                            _c("textarea", {
                               directives: [
                                 {
                                   name: "model",
@@ -38746,6 +38746,7 @@ var render = function() {
                                   expression: "title"
                                 }
                               ],
+                              staticClass: "form-control",
                               domProps: { value: _vm.title },
                               on: {
                                 input: function($event) {
