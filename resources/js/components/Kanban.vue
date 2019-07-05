@@ -13,7 +13,7 @@
                             </button>
                     </div>
                     <div class="modal-body">
-                        <input v-model="new_stage">
+                        <input v-model="new_stage" class="form-control">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" v-on:click="addStage">Add</button>

@@ -38617,6 +38617,7 @@ var render = function() {
                         expression: "new_stage"
                       }
                     ],
+                    staticClass: "form-control",
                     domProps: { value: _vm.new_stage },
                     on: {
                       input: function($event) {
